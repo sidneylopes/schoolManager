@@ -1,0 +1,2 @@
+# schoolManager
+School managment system
