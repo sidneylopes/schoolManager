@@ -15,11 +15,7 @@ export const store = async (req: Request, res: Response) => {
 
   return res.status(200).json(user);
 
-}
+};
 export const index = async (req: Request, res: Response) => {
   
-    return res.json({
-      message: "menor que 5"
-    });
-  
-}
+};
