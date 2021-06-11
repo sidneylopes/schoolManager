@@ -41,6 +41,12 @@ class UsersService {
     await this.usersRepository.save(user);
     return user;
     
+  };
+  async list() {
+
+    const users = this.usersRepository.find();
+    return users;
+
   }
 
 };
