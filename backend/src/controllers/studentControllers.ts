@@ -18,4 +18,9 @@ export const store = async (req: Request, res: Response) => {
 };
 export const index = async (req: Request, res: Response) => {
   
+  const studentsService = new StudentsService();
+  const students = await studentsService.list();
+
+  return res.status(200).json(students);
+
 };
