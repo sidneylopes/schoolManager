@@ -1,13 +1,23 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
 
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import DashboardIcon from '@material-ui/icons/Dashboard';
+import PersonIcon from '@material-ui/icons/Person';
+import SchoolIcon from '@material-ui/icons/School';
+
+const useStyles = makeStyles((theme) => ({
+  icon: {
+    padding: '10px 20px'
+  }
+}));
 
 function FistItemLink(props) {
-  
+
+  const classes = useStyles();
+
 	const { icon, primary, to } = props;
 
 	const renderLink = React.useMemo(
@@ -19,7 +29,7 @@ function FistItemLink(props) {
 	);
 
 	return (
-    <ListItem button component={renderLink}>
+    <ListItem button component={renderLink} className={classes.icon}>
       {icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
       <ListItemText primary={primary} />
     </ListItem>
@@ -31,9 +41,14 @@ const MainListItems = () => {
   return (
     <div>
       <FistItemLink 
-        to="/"
-        primary={'Dashboard'}
-        icon={<DashboardIcon />}
+        to="/users"
+        primary={'Users'}
+        icon={<PersonIcon />}
+      />
+      <FistItemLink 
+        to="/students"
+        primary={'Students'}
+        icon={<SchoolIcon />}
       />
     </div>
   );
